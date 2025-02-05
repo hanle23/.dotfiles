@@ -31,7 +31,7 @@ alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME 
 #### Hide Untracked files
 ```bash
 dotfiles config --local status.showUntrackedFiles no
-dotfiles remote add origin git@github.com:anandpiyer/.dotfiles.git
+dotfiles remote add origin https://github.com/hanle23/.dotfiles
 ```
 
 
