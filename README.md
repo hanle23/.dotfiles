@@ -28,6 +28,12 @@ git init --bare $HOME/.dotfiles
 alias dotfiles='/usr/local/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME // or /urs/bin/git ...
 ```
 
+#### Hide Untracked files
+```bash
+dotfiles config --local status.showUntrackedFiles no
+dotfiles remote add origin git@github.com:anandpiyer/.dotfiles.git
+```
+
 
 
 ## Setting Up New Machine
