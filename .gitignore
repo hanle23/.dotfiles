@@ -21,3 +21,4 @@ Repo/
 .zsh_history
 .config/nvim/lazy-lock.json
 .config/iterm2/
+.Trash/
