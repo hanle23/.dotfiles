@@ -24,3 +24,8 @@ Repo/
 .Trash/
 .gitconfig
 .viminfo
+.boto
+.config/configstore/
+.config/gcloud/
+.lesshst
+.zshrc.backup
