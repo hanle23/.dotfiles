@@ -22,3 +22,5 @@ Repo/
 .config/nvim/lazy-lock.json
 .config/iterm2/
 .Trash/
+.gitconfig
+.viminfo
