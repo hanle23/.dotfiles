@@ -121,7 +121,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.hl.on_yank()
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -234,7 +233,7 @@ require('lazy').setup({
       -- Document existing key chains
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
+        { '<leader>d', group = '[D]ebug' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
@@ -455,7 +454,7 @@ require('lazy').setup({
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+          map('<leader>cs', require('telescope.builtin').lsp_document_symbols, '[C]ode [S]ymbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
@@ -624,7 +623,7 @@ require('lazy').setup({
           .new({}, {
             prompt_title = 'Harpoon',
             finder = require('telescope.finders').new_table {
-              result = file_paths,
+              results = file_paths,
             },
             previewer = conf.file_previewer {},
             sorter = conf.generic_sorter {},
@@ -638,28 +637,24 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
       end)
-      vim.keymap.set('n', '<C-e>', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end)
-
-      vim.keymap.set('n', '<C-h>', function()
+      vim.keymap.set('n', '<leader>1', function()
         harpoon:list():select(1)
       end)
-      vim.keymap.set('n', '<C-t>', function()
+      vim.keymap.set('n', '<leader>2', function()
         harpoon:list():select(2)
       end)
-      vim.keymap.set('n', '<C-n>', function()
+      vim.keymap.set('n', '<leader>3', function()
         harpoon:list():select(3)
       end)
-      vim.keymap.set('n', '<C-s>', function()
+      vim.keymap.set('n', '<leader>4', function()
         harpoon:list():select(4)
       end)
 
       -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set('n', '<C-S-P>', function()
+      vim.keymap.set('n', '[h', function()
         harpoon:list():prev()
       end)
-      vim.keymap.set('n', '<C-S-N>', function()
+      vim.keymap.set('n', ']h', function()
         harpoon:list():next()
       end)
     end,
@@ -724,6 +719,7 @@ require('lazy').setup({
           end
           return 'make install_jsregexp'
         end)(),
+        version = 'v2.*',
         dependencies = {
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
@@ -937,7 +933,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
