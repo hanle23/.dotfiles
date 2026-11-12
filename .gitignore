@@ -29,3 +29,8 @@ Repo/
 .config/gcloud/
 .lesshst
 .zshrc.backup
+# fish: machine state + fisher-managed files (restore with `fisher update`)
+.config/fish/fish_variables
+.config/fish/functions/
+.config/fish/completions/
+.config/fish/conf.d/fzf.fish
